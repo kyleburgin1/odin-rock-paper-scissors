@@ -6,4 +6,27 @@ function computerChoice(){
     return choices[computerChoice];
 }
 
-console.log(computerChoice())
+function playRound(playerSelection, computerSelection){
+    playerSelection = playerSelection.toLowerCase();
+
+    if(!["ROCK", "PAPER", "SCISSORS"].includes(playerSelection)){
+        return "Invalid choice";
+    }
+
+    console.log(`Player chose: ${playerSelection}`);
+    console.log(`Computer chose: ${computerSelection}`);
+
+    if(playerSelection === computerSelection){
+        return "Its a draw!"
+    }
+    else if (
+        (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
+        (playerSelection === "PAPER" && computerSelection === "ROCK") ||
+        (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+    ){
+        return "You Win!";
+    }
+    else{
+        return "You Lose!"
+    }
+}
