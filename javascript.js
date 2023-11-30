@@ -7,7 +7,7 @@ function computerChoice(){
 }
 
 function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toUpperCase();
 
     if(!["ROCK", "PAPER", "SCISSORS"].includes(playerSelection)){
         return "Invalid choice";
@@ -30,3 +30,15 @@ function playRound(playerSelection, computerSelection){
         return "You Lose!"
     }
 }
+ 
+/*
+function game(){
+    for(let i = 0; i < 5; i++){
+        const playerSelection = prompt("Rock Paper or Scissors?");
+        const computerSelection = computerChoice(); 
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+game();
+*/
