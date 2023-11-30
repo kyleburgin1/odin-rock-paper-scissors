@@ -1,3 +1,23 @@
+const choiceBtns = document.querySelectorAll(".choiceBtns");
+const playerText = document.querySelector(".player");
+const computerText = document.querySelector(".computer");
+const resultText = document.querySelector(".results")
+let player;
+let computer;
+let result;
+
+
+
+choiceBtns.forEach(button => button.addEventListener("click", () =>{
+    player = button.textContent;
+    computerChoice()
+    playerText.textContent = `Player: ${player}`;
+    computerText.textContent = `computer: ${computer}`;
+    resultText = playRound();
+}))
+
+
+
 function computerChoice(){
 
     let choices = ["ROCK", "PAPER", "SCISSORS"]
@@ -6,23 +26,14 @@ function computerChoice(){
     return choices[computerChoice];
 }
 
-function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toUpperCase();
-
-    if(!["ROCK", "PAPER", "SCISSORS"].includes(playerSelection)){
-        return "Invalid choice";
-    }
-
-    console.log(`Player chose: ${playerSelection}`);
-    console.log(`Computer chose: ${computerSelection}`);
-
-    if(playerSelection === computerSelection){
+function playRound(){
+    if(player === computer){
         return "Its a draw!"
     }
     else if (
-        (playerSelection === "ROCK" && computerSelection === "SCISSORS") ||
-        (playerSelection === "PAPER" && computerSelection === "ROCK") ||
-        (playerSelection === "SCISSORS" && computerSelection === "PAPER")
+        (player === "ROCK" && computer === "SCISSORS") ||
+        (player === "PAPER" && computer === "ROCK") ||
+        (player === "SCISSORS" && computer === "PAPER")
     ){
         return "You Win!";
     }
